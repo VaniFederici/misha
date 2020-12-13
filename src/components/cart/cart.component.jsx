@@ -21,6 +21,9 @@ export const Cart = () => {
           })}
         </div>
         <div className="cart-total">TOTAL: ${contexto.montoTotalPedido}</div>
+        <div className="cart-finalize">
+          <button className="cart-finalize-button">Finalizar Compra</button>{" "}
+        </div>
       </>
     );
   }

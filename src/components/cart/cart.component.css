@@ -16,3 +16,18 @@
   font-weight: bold;
   color: red;
 }
+.cart-finalize {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+.cart-finalize-button {
+  padding: 10px 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1;
+  border-radius: 10px;
+  border: 1px solid #beb8b8;
+  background-color: #f3d05f;
+  user-select: none;
+}

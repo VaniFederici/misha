@@ -5,6 +5,7 @@ import { ItemDetailContainer } from "./containers/item-detail/item-detail.contai
 import { Cart } from "./components/cart/cart.component";
 import { CartProvider } from "./context/cart-context.component";
 import { CategoryList } from "./components/category-list/category-list.component";
+import { Checkout } from "./components/checkout/checkout.component";
 
 const App = () => {
   return (
@@ -23,6 +24,9 @@ const App = () => {
           </Route>
           <Route path="/carrito">
             <Cart />
+          </Route>
+          <Route path="/checkout">
+            <Checkout />
           </Route>
         </Switch>
       </BrowserRouter>
