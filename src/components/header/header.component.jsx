@@ -45,7 +45,7 @@ export const Header = () => {
         <ul className="navbar-nav">
           {categorias.map((categoria) => {
             return (
-              <li className="nav-item">
+              <li className="nav-item" key={categoria.id}>
                 <NavLink
                   to={`/categoria/${categoria.id}`}
                   activeClassName="active"

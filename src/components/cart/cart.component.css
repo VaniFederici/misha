@@ -31,3 +31,7 @@
   background-color: #f3d05f;
   user-select: none;
 }
+.cart-finalize-container {
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,6 +1,10 @@
 .item-detail-card {
   max-width: 90%;
   margin: 20px auto 10px auto;
+  border: 1px solid #d3cbcb;
+  padding: 20px;
+  border-radius: 10px !important;
+  box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.2);
 }
 
 .item-detail-card-description {

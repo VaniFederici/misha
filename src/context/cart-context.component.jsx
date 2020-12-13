@@ -5,7 +5,7 @@ export const CartContext = React.createContext();
 export const CartProvider = ({ children }) => {
   const [pedido, setPedido] = useState([]);
   const [cantidadItemsPedido, setCantidadItemsPedido] = useState(0);
-  const [montoTotalPedido, setmontoTotalPedido] = useState(0);
+  const [montoTotalPedido, setMontoTotalPedido] = useState(0);
 
   const eliminarItem = (id) => {
     const newPedido = pedido;
@@ -42,7 +42,13 @@ export const CartProvider = ({ children }) => {
       total += elemento.cantidad * elemento.item.precio;
     });
     setCantidadItemsPedido(cantidad);
-    setmontoTotalPedido(total);
+    setMontoTotalPedido(total);
+  };
+
+  const limpiarPedido = () => {
+    setPedido([]);
+    setCantidadItemsPedido(0);
+    setMontoTotalPedido(0);
   };
 
   return (
@@ -53,6 +59,7 @@ export const CartProvider = ({ children }) => {
         montoTotalPedido,
         eliminarItem,
         agregarItem,
+        limpiarPedido,
       }}
     >
       {children}
