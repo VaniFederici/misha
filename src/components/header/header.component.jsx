@@ -18,7 +18,7 @@ export const Header = () => {
     <nav className="navbar navbar-dark bg-dark">
       <Link to="/">
         <img
-          src="./images/imagen1.jpg"
+          src={process.env.PUBLIC_URL + "/images/imagen1.jpg"}
           width="100"
           height="60"
           className="d-inline-block align-top"

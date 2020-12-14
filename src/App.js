@@ -10,7 +10,7 @@ import { Checkout } from "./components/checkout/checkout.component";
 const App = () => {
   return (
     <CartProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL + "/"}>
         <Header />
         <Switch>
           <Route exact path="/">
