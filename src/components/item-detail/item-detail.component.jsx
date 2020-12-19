@@ -23,7 +23,11 @@ export const ItemDetail = (props) => {
     <div className="card mb-3 item-detail-card">
       <div className="row no-gutters">
         <div className="col-md-4">
-          <img src={item.imagen} className="card-img" alt={item.nombre} />
+          <img
+            src={process.env.PUBLIC_URL + item.imagen}
+            className="card-img"
+            alt={item.nombre}
+          />
         </div>
         <div className="col-md-8">
           <div className="card-body item-detail-card-description">

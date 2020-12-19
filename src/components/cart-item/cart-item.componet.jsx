@@ -9,7 +9,11 @@ export const CartItem = (props) => {
   return (
     <div className="cart-item-container">
       <div>
-        <img src={item.imagen} className="cart-item-img" alt={item.nombre} />
+        <img
+          src={process.env.PUBLIC_URL + item.imagen}
+          className="cart-item-img"
+          alt={item.nombre}
+        />
       </div>
       <div className="cart-item-description">
         <div className="cart-item-name">{item.nombre}</div>
