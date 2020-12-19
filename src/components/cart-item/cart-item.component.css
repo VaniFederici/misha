@@ -7,7 +7,6 @@
   margin: 5px 20px;
   background-color: #f8f9fa;
 }
-
 .cart-item-img {
   max-height: 100px;
   width: auto;
@@ -25,7 +24,6 @@
   font-weight: bold;
   font-size: 1.1em;
 }
-
 .cart-item-eliminar {
   font-size: 1.2rem;
 }
