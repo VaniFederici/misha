@@ -11,6 +11,7 @@ import "./category-list.component.css";
 export const CategoryList = () => {
   const [itemList, setItemList] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [category, setCategory] = useState({});
   const [categoryNotFound, setCategoryNotFound] = useState(false);
   const { key } = useParams();
 
@@ -30,6 +31,7 @@ export const CategoryList = () => {
       if (response.size !== 0) {
         const categoria = GenericSerializer.serializeAll(response);
         getProducts(categoria[0].id);
+        setCategory(categoria[0]);
       } else {
         setLoading(false);
         setCategoryNotFound(true);
@@ -49,13 +51,22 @@ export const CategoryList = () => {
 
   if (itemList.length) {
     return (
-      <div className="container-fluid">
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-xl-5 ">
-          {itemList.map((item, indice) => {
-            return <Item item={item} key={indice} />;
-          })}
+      <>
+        <div>
+          <img
+            src={process.env.PUBLIC_URL + category.imagen}
+            className="category-list-image"
+            alt="main image"
+          />
         </div>
-      </div>
+        <div className="container-fluid">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-xl-5 ">
+            {itemList.map((item, indice) => {
+              return <Item item={item} key={indice} />;
+            })}
+          </div>
+        </div>
+      </>
     );
   }
   if (loading) {
