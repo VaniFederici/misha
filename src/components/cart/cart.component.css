@@ -12,9 +12,14 @@
 .cart-empty {
   text-align: center;
   font-size: 1.7rem;
-  margin: 20px;
   font-weight: bold;
   color: red;
+  max-width: 70%;
+  margin: 20px auto 0px auto;
+  border: 1px solid #d3cbcb;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.2);
 }
 .cart-finalize {
   display: flex;

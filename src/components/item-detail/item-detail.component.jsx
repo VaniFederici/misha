@@ -40,7 +40,7 @@ export const ItemDetail = (props) => {
                 onAdd={actualizarCantidad}
               />
               <button className="item-detail-button-comprar" onClick={comprar}>
-                Comprar {cantidad}
+                Agregar {cantidad}
               </button>
             </div>
           </div>

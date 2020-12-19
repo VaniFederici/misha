@@ -19,7 +19,7 @@ const App = () => {
           <Route path="/producto/:id">
             <ItemDetailContainer />
           </Route>
-          <Route path="/categoria/:id">
+          <Route path="/categoria/:key">
             <CategoryList />
           </Route>
           <Route path="/carrito">

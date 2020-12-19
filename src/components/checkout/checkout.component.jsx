@@ -21,24 +21,22 @@ export const Checkout = () => {
   }, []);
 
   const generarCheckout = (cliente) => {
-    debugger;
     const pedidoFinal = {
       cliente,
       total: contexto.montoTotalPedido,
       pedido: contexto.pedido,
+      estado: "Generado",
       fecha: new Date(),
     };
     setLoading(true);
     PedidosAPI.crearPedido(pedidoFinal)
       .then((response) => {
-        debugger;
         setMensaje("Compra realizada exitosamente!");
         setIdPedido(response.id);
         setStep(2);
         contexto.limpiarPedido();
       })
       .catch((error) => {
-        debugger;
         setMensaje(
           "Ocurrió un error procesando su pedido, intente nuevamente mas tarde"
         );

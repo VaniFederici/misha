@@ -47,9 +47,11 @@ export const Header = () => {
             return (
               <li className="nav-item" key={categoria.id}>
                 <NavLink
-                  to={`/categoria/${categoria.id}`}
+                  to={`/categoria/${categoria.key}`}
                   activeClassName="active"
                   className="nav-link"
+                  data-toggle="collapse"
+                  data-target="#navbarNav"
                 >
                   {categoria.nombre}
                 </NavLink>

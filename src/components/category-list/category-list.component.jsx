@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { CategoriasAPI } from "../../api/categorias.api";
 import { ProductosAPI } from "../../api/productos.api";
 import { GenericSerializer } from "../../api/generic.serializer";
 import { Item } from "../item/item.component";
@@ -9,22 +10,41 @@ import "./category-list.component.css";
 
 export const CategoryList = () => {
   const [itemList, setItemList] = useState([]);
-  const { id } = useParams();
+  const [loading, setLoading] = useState(false);
+  const [categoryNotFound, setCategoryNotFound] = useState(false);
+  const { key } = useParams();
 
   useEffect(() => {
+    setCategoryNotFound(false);
     setItemList([]);
-    getProducts();
-  }, [id]);
+    getCategory();
+  }, [key]);
 
   useEffect(() => {
-    getProducts();
+    getCategory();
   }, []);
 
-  const getProducts = () => {
-    ProductosAPI.getProductsByCategory(parseInt(id)).then((response) => {
-      const productos = GenericSerializer.serializeAll(response);
-      setItemList(productos);
+  const getCategory = () => {
+    setLoading(true);
+    CategoriasAPI.getCategoryByKey(key).then((response) => {
+      if (response.size !== 0) {
+        const categoria = GenericSerializer.serializeAll(response);
+        getProducts(categoria[0].id);
+      } else {
+        setLoading(false);
+        setCategoryNotFound(true);
+      }
     });
+  };
+
+  const getProducts = (categoryId) => {
+    ProductosAPI.getProductsByCategory(parseInt(categoryId)).then(
+      (response) => {
+        const productos = GenericSerializer.serializeAll(response);
+        setItemList(productos);
+        setLoading(false);
+      }
+    );
   };
 
   if (itemList.length) {
@@ -37,7 +57,14 @@ export const CategoryList = () => {
         </div>
       </div>
     );
-  } else {
+  }
+  if (loading) {
     return <Loading />;
   }
+  if (categoryNotFound) {
+    return (
+      <div className="category-list-not-found">Categoría no encontrada</div>
+    );
+  }
+  return <> </>;
 };

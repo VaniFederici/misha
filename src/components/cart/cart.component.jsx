@@ -13,11 +13,7 @@ export const Cart = () => {
   };
 
   if (contexto.pedido.length === 0) {
-    return (
-      <div className="cart-empty">
-        No hay productos seleccionados en el carrito
-      </div>
-    );
+    return <div className="cart-empty">El carrito esta vacío</div>;
   } else {
     return (
       <>
@@ -30,7 +26,7 @@ export const Cart = () => {
           <div className="cart-total">TOTAL: ${contexto.montoTotalPedido}</div>
           <div className="cart-finalize">
             <button className="cart-finalize-button" onClick={finalizar}>
-              Finalizar Compra
+              Comprar
             </button>
           </div>
         </div>

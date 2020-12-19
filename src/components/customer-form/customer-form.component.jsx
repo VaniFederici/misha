@@ -5,6 +5,7 @@ export const CustomerForm = (props) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [email2, setEmail2] = useState("");
   const [error, setError] = useState("");
 
   const handleNameChange = (event) => {
@@ -17,6 +18,10 @@ export const CustomerForm = (props) => {
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
+  };
+
+  const handleEmail2Change = (event) => {
+    setEmail2(event.target.value);
   };
 
   const validar = () => {
@@ -35,6 +40,10 @@ export const CustomerForm = (props) => {
     }
     if (!emailPattern.test(email)) {
       setError("Debe ingresar un e-mail válido");
+      return;
+    }
+    if (email.trim() !== email2.trim()) {
+      setError("  Los email son diferentes");
       return;
     }
     setError("");
@@ -88,10 +97,22 @@ export const CustomerForm = (props) => {
             onChange={handleEmailChange}
           />
         </div>
+        <div className="col-12">
+          <label htmlFor="email2" className="form-label">
+            Repetir e-mail
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="email2"
+            value={email2}
+            onChange={handleEmail2Change}
+          />
+        </div>
         <div className="col-12 text-right">
           <div className="customer-form-error">{error}</div>
           <button className="customer-form-button" onClick={validar}>
-            Siguiente
+            Finalizar Compra
           </button>
         </div>
       </div>
