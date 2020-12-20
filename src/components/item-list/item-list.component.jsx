@@ -19,7 +19,7 @@ export const ItemList = () => {
   if (itemList.length) {
     return (
       <div className="container-fluid">
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-xl-5 ">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-xl-5 item-list-row">
           {itemList.map((item, indice) => {
             return <Item item={item} key={indice} />;
           })}

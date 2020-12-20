@@ -60,7 +60,7 @@ export const CategoryList = () => {
           />
         </div>
         <div className="container-fluid">
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-xl-5 ">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-xl-5 category-list-row">
             {itemList.map((item, indice) => {
               return <Item item={item} key={indice} />;
             })}
