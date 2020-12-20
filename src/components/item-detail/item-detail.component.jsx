@@ -25,7 +25,7 @@ export const ItemDetail = (props) => {
         <div className="col-md-4">
           <img
             src={process.env.PUBLIC_URL + item.imagen}
-            className="card-img"
+            className="card-img item-detail-image"
             alt={item.nombre}
           />
         </div>

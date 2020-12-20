@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export const CartContext = React.createContext();
 
@@ -7,6 +7,15 @@ export const CartProvider = ({ children }) => {
   const [cantidadItemsPedido, setCantidadItemsPedido] = useState(0);
   const [montoTotalPedido, setMontoTotalPedido] = useState(0);
 
+  useEffect(() => {
+    const pedido = localStorage.getItem("pedido");
+    const cantidadItemsPedido = localStorage.getItem("cantidadItemsPedido");
+    const montoTotalPedido = localStorage.getItem("montoTotalPedido");
+    pedido && setPedido(JSON.parse(pedido));
+    cantidadItemsPedido && setCantidadItemsPedido(cantidadItemsPedido);
+    montoTotalPedido && setMontoTotalPedido(montoTotalPedido);
+  }, []);
+
   const eliminarItem = (id) => {
     const newPedido = pedido;
     const indice = newPedido.findIndex((elemento) => {
@@ -14,6 +23,7 @@ export const CartProvider = ({ children }) => {
     });
     newPedido.splice(indice, 1);
     setPedido([...newPedido]);
+    localStorage.setItem("pedido", JSON.stringify([...newPedido]));
     calcularTotales();
   };
 
@@ -31,6 +41,7 @@ export const CartProvider = ({ children }) => {
       pedido[indiceYaExiste].cantidad += detalle.cantidad;
     }
     setPedido([...pedido]);
+    localStorage.setItem("pedido", JSON.stringify([...pedido]));
     calcularTotales();
   };
 
@@ -42,13 +53,18 @@ export const CartProvider = ({ children }) => {
       total += elemento.cantidad * elemento.item.precio;
     });
     setCantidadItemsPedido(cantidad);
+    localStorage.setItem("cantidadItemsPedido", cantidad);
     setMontoTotalPedido(total);
+    localStorage.setItem("montoTotalPedido", total);
   };
 
   const limpiarPedido = () => {
     setPedido([]);
+    localStorage.setItem("pedido", JSON.stringify([]));
     setCantidadItemsPedido(0);
+    localStorage.setItem("cantidadItemsPedido", 0);
     setMontoTotalPedido(0);
+    localStorage.setItem("montoTotalPedido", 0);
   };
 
   return (

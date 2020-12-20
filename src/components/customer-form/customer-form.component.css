@@ -6,6 +6,7 @@
   border-radius: 10px;
   box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.2);
   background-color: #f8f9fa;
+  margin-bottom: 20px;
 }
 .customer-form-button {
   padding: 10px 12px;
@@ -17,6 +18,11 @@
   background-color: #f3d05f;
   user-select: none;
   margin-top: 10px;
+  outline: none;
+  box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.2);
+}
+.customer-form-button:focus {
+  outline: none;
 }
 .customer-form-title {
   text-align: center;
@@ -26,4 +32,6 @@
 }
 .customer-form-error {
   color: red;
+  font-weight: bold;
+  padding-top: 10px;
 }

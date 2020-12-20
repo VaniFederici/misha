@@ -5,6 +5,7 @@
   padding: 20px;
   border-radius: 10px !important;
   box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.2);
+  background-color: #f8f9fa !important;
 }
 .item-detail-card-description {
   display: flex;
@@ -21,10 +22,20 @@
   justify-content: center;
   align-items: flex-end;
 }
+.item-detail-image {
+  user-select: none;
+}
+.item-detail-info {
+  user-select: none;
+}
+.item-detail-name {
+  user-select: none;
+}
 .item-detail-precio {
   font-weight: bold;
   font-size: 1.2em;
   color: red;
+  user-select: none;
 }
 .item-detail-button-comprar {
   padding: 10px 12px;
@@ -35,4 +46,9 @@
   border: 1px solid #beb8b8;
   background-color: #f3d05f;
   user-select: none;
+  outline: none;
+  box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.2);
+}
+.item-detail-button-comprar:focus {
+  outline: none;
 }
