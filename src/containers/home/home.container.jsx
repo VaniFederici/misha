@@ -7,11 +7,22 @@ export const Home = (props) => {
 
   return (
     <div className="home">
-      <div>
+      <div
+        className="home-main-image-container"
+        style={{
+          background: `url("${process.env.PUBLIC_URL}/images/main.jpg") no-repeat left`,
+          backgroundSize: "cover",
+        }}
+      >
         <img
-          src={process.env.PUBLIC_URL + "/images/main.jpg"}
-          className="home-main-image"
+          src={process.env.PUBLIC_URL + "/images/logo-2.png"}
+          className="home-main-logo"
           alt="main image"
+        />
+        <img
+          src={process.env.PUBLIC_URL + "/images/arrow.png"}
+          className="home-main-arrow"
+          alt="arrow image"
         />
       </div>
       <ItemList />

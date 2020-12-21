@@ -12,8 +12,9 @@ export const CartProvider = ({ children }) => {
     const cantidadItemsPedido = localStorage.getItem("cantidadItemsPedido");
     const montoTotalPedido = localStorage.getItem("montoTotalPedido");
     pedido && setPedido(JSON.parse(pedido));
-    cantidadItemsPedido && setCantidadItemsPedido(cantidadItemsPedido);
-    montoTotalPedido && setMontoTotalPedido(montoTotalPedido);
+    cantidadItemsPedido &&
+      setCantidadItemsPedido(parseInt(cantidadItemsPedido));
+    montoTotalPedido && setMontoTotalPedido(parseInt(montoTotalPedido));
   }, []);
 
   const eliminarItem = (id) => {

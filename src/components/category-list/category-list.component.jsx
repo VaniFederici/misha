@@ -52,11 +52,20 @@ export const CategoryList = () => {
   if (itemList.length) {
     return (
       <>
-        <div>
+        <div
+          className="category-list-image-container"
+          style={{
+            background: `url("${
+              process.env.PUBLIC_URL + category.imagen
+            }") no-repeat center`,
+            backgroundSize: "cover",
+          }}
+        >
+          <div className="category-list-text">{category.nombre}</div>
           <img
-            src={process.env.PUBLIC_URL + category.imagen}
-            className="category-list-image"
-            alt="main image"
+            src={process.env.PUBLIC_URL + "/images/arrow.png"}
+            className="category-list-arrow"
+            alt="arrow image"
           />
         </div>
         <div className="container-fluid">
